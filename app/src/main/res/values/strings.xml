@@ -1,0 +1,60 @@
+<resources>
+
+    <string name="app_name">Android Homework</string>
+
+    <string name="nameLabel">Введите имя:</string>
+    <string name="emailLabel">Введите Email:</string>
+    <string name="buttonLabel">Подписаться</string>
+    <string name="clearLabel">Очистить</string>
+    <string name="responseText">Подписка на рассылку успешно оформлена для пользователя %1$s на email: %2$s</string>
+
+    <string name="amountLabel">Введите сумму:</string>
+    <string name="infoLabel">Информация об оплате:</string>
+    <string name="okLabel">OK</string>
+    <string name="cardTypeLabel">С банковской карты</string>
+    <string name="phoneTypeLabel">С мобильного телефона</string>
+    <string name="addressTypeLabel">Наличными по адресу</string>
+    <string name="successMessage">Оплата %1$d принята</string>
+
+    <string name="btnLabel">Показать адрес</string>
+
+    <string-array name="countries">
+        <item>Россия</item>
+        <item>Украина</item>
+        <item>Белоруссия</item>
+    </string-array>
+
+    <string-array name="r_cities">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Казань</item>
+    </string-array>
+
+    <string-array name="u_cities">
+        <item>Киев</item>
+        <item>Одесса</item>
+        <item>Харьков</item>
+    </string-array>
+
+    <string-array name="b_cities">
+        <item>Минск</item>
+        <item>Гомель</item>
+        <item>Торжок</item>
+    </string-array>
+
+
+    <string name="fromDateTimeLabel">Дата-время старта задачи:</string>
+    <string name="toDateTimeLabel">Дата-время окончания задачи:</string>
+    <string name="fromDateTimeLabelFormatted">Дата-время старта задачи: %1$s</string>
+    <string name="toDateTimeLabelFormatted">Дата-время окончания задачи: %1$s</string>
+    <string name="startLabel">старт: </string>
+    <string name="endLabel"> окончаниe: </string>
+
+    <string name="menuLabelSubscribe">Подписка</string>
+    <string name="menuLabelCheckboxes">Чекбоксы</string>
+    <string name="menuLabelSpinners">Спиннеры</string>
+    <string name="menuLabelDateTime">Задачи</string>
+    <string name="menuLabelNotepad">Записная книжка</string>
+
+</resources>
+

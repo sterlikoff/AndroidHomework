@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.netodologia.myapplication.MainActivity">
+
+    <item
+        android:id="@+id/action_open_subscribe"
+        android:orderInCategory="100"
+        android:title="@string/menuLabelSubscribe"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_open_checkboxes"
+        android:orderInCategory="100"
+        android:title="@string/menuLabelCheckboxes"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_open_spinners"
+        android:orderInCategory="100"
+        android:title="@string/menuLabelSpinners"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_open_datetime"
+        android:orderInCategory="100"
+        android:title="@string/menuLabelDateTime"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_open_notes"
+        android:orderInCategory="100"
+        android:title="@string/menuLabelNotepad"
+        app:showAsAction="never" />
+
+</menu>

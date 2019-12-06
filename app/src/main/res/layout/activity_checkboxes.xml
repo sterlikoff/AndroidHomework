@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CheckboxActivity">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="20dp"
+        >
+
+        <EditText
+            android:id="@+id/inputMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/amountLabel"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/inputInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/infoLabel" />
+
+        <Button
+            android:id="@+id/btnOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/okLabel" />
+
+        <CheckBox
+            android:id="@+id/bankCardChkBx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cardTypeLabel"/>
+
+        <CheckBox
+            android:id="@+id/mobilePhoneChkBx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phoneTypeLabel"/>
+
+        <CheckBox
+            android:id="@+id/cashAddressChkBx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addressTypeLabel"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
