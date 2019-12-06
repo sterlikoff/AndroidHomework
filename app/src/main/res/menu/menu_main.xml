@@ -33,4 +33,10 @@
         android:title="@string/menuLabelNotepad"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_open_calculator"
+        android:orderInCategory="100"
+        android:title="@string/menuLabelCalculator"
+        app:showAsAction="never" />
+
 </menu>

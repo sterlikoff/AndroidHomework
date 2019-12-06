@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-
+        <activity android:name=".CalculatorActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,14 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".NotepadActivity"></activity>
-
+        <activity android:name=".NotepadActivity" />
         <activity android:name=".SubscribeActivity" />
         <activity android:name=".CheckboxActivity" />
         <activity android:name=".SpinnersActivity" />
         <activity android:name=".DateTimeActivity" />
-
     </application>
 
 </manifest>

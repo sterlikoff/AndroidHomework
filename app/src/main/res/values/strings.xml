@@ -55,6 +55,27 @@
     <string name="menuLabelSpinners">Спиннеры</string>
     <string name="menuLabelDateTime">Задачи</string>
     <string name="menuLabelNotepad">Записная книжка</string>
+    <string name="menuLabelCalculator">Калькулятор</string>
+
+    <string name="labelOne">1</string>
+    <string name="labelTwo">2</string>
+    <string name="labelThree">3</string>
+    <string name="labelFour">4</string>
+    <string name="labelFive">5</string>
+    <string name="labelSix">6</string>
+    <string name="labelSeven">7</string>
+    <string name="labelEight">8</string>
+    <string name="labelNine">9</string>
+    <string name="labelZero">0</string>
+    <string name="labelDot">.</string>
+    <string name="labelC">C</string>
+    <string name="labelSign">+/-</string>
+    <string name="labelPercent">%</string>
+    <string name="labelDivision">/</string>
+    <string name="labelMultiplication">x</string>
+    <string name="labelPlus">+</string>
+    <string name="labelMinus">-</string>
+    <string name="labelCompute">=</string>
 
 </resources>
 

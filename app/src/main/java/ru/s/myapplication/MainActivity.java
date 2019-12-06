@@ -69,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
 
+            case R.id.action_open_calculator:
+
+                Intent calculator = new Intent(MainActivity.this, CalculatorActivity.class);
+                startActivity(calculator);
+
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);
