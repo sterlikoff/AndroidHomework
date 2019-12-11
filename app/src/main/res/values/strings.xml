@@ -76,6 +76,11 @@
     <string name="labelPlus">+</string>
     <string name="labelMinus">-</string>
     <string name="labelCompute">=</string>
+    <string name="labelEngineer">...</string>
+    <string name="labelSin">sin</string>
+    <string name="labelCos">cos</string>
+    <string name="labelTan">tan</string>
+    <string name="labelExp">exp</string>
 
 </resources>
 
