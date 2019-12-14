@@ -76,6 +76,13 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
 
+            case R.id.action_open_locale:
+
+                Intent locale = new Intent(MainActivity.this, LocaleActivity.class);
+                startActivity(locale);
+
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);

@@ -56,6 +56,7 @@
     <string name="menuLabelDateTime">Задачи</string>
     <string name="menuLabelNotepad">Записная книжка</string>
     <string name="menuLabelCalculator">Калькулятор</string>
+    <string name="menuLabelLocale">Локализация</string>
 
     <string name="labelOne">1</string>
     <string name="labelTwo">2</string>
@@ -81,6 +82,16 @@
     <string name="labelCos">cos</string>
     <string name="labelTan">tan</string>
     <string name="labelExp">exp</string>
+
+    <string-array name="languages">
+        <item>Русский</item>
+        <item>Украинский</item>
+        <item>Английский</item>
+    </string-array>
+
+    <string name="languageText">
+        С другой стороны начало повседневной работы по формированию позиции позволяет оценить значение систем массового участия. Задача организации, в особенности же реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в отношении поставленных задач. Задача организации, в особенности же постоянный количественный рост и сфера нашей активности играет важную роль в формировании позиций, занимаемых участниками в отношении поставленных задач. С другой стороны укрепление и развитие структуры требуют от нас анализа форм развития.
+    </string>
 
 </resources>
 

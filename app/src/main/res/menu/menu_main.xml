@@ -39,4 +39,10 @@
         android:title="@string/menuLabelCalculator"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_open_locale"
+        android:orderInCategory="100"
+        android:title="@string/menuLabelLocale"
+        app:showAsAction="never" />
+
 </menu>
