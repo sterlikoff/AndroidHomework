@@ -16,6 +16,26 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
+    <Spinner
+        android:id="@+id/themesSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/languagesSpinner"
+        android:layout_marginTop="20dp"
+        />
+
+    <Spinner
+        android:id="@+id/marginsSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/themesSpinner"
+        android:layout_marginTop="20dp"
+        />
+
     <Button
         android:id="@+id/okBtn"
         android:layout_width="0dp"
@@ -24,10 +44,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/languagesSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/marginsSpinner"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:onClick="onSelectLanguageBtnClick"
+        android:onClick="onApplyBtnClick"
         />
 
     <TextView
