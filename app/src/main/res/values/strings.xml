@@ -57,6 +57,7 @@
     <string name="menuLabelNotepad">Записная книжка</string>
     <string name="menuLabelCalculator">Калькулятор</string>
     <string name="menuLabelLocale">Локализация</string>
+    <string name="menuLabelList">Списки</string>
 
     <string name="labelOne">1</string>
     <string name="labelTwo">2</string>

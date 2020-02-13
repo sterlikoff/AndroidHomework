@@ -83,6 +83,13 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
 
+            case R.id.action_open_list:
+
+                Intent list = new Intent(MainActivity.this, ListActivity.class);
+                startActivity(list);
+
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);

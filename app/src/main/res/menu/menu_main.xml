@@ -45,4 +45,10 @@
         android:title="@string/menuLabelLocale"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_open_list"
+        android:orderInCategory="100"
+        android:title="@string/menuLabelList"
+        app:showAsAction="never" />
+
 </menu>
