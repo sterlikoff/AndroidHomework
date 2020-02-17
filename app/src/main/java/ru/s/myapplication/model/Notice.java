@@ -67,4 +67,8 @@ public class Notice {
                 '}';
     }
 
+    public String toLine() {
+        return title + ";" + address + ";" + price.toString() + ";" + description + "\n";
+    }
+
 }

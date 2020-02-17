@@ -2,14 +2,13 @@ package ru.s.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import ru.s.myapplication.adapters.NoticeListAdapter;
-import ru.s.myapplication.model.Notice;
 
 public class ListActivity extends AppCompatActivity {
 
@@ -19,16 +18,22 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        List<Notice> noticeList = new ArrayList<>();
-
-        noticeList.add(new Notice("House", "Good house", "Moscow", 5000000d, 0));
-        noticeList.add(new Notice("House", "Bad house", "Saint-Petersburg", 4900000d, 0));
-        noticeList.add(new Notice("Flat", "Good flat", "Simferopol", 3990000d, 0));
-
-        NoticeListAdapter adapter = new NoticeListAdapter(noticeList, this);
+        NoticeListAdapter adapter = new NoticeListAdapter(this);
 
         ListView listView = findViewById(R.id.list_view);
         listView.setAdapter(adapter);
+
+        Button btn = findViewById(R.id.add_item_button);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(ListActivity.this, NoticeFormActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 }

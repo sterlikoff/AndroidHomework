@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".NoticeFormActivity"></activity>
+        <activity android:name=".ListActivity" />
         <activity android:name=".LocaleActivity" />
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".MainActivity">

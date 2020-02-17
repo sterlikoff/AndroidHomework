@@ -10,7 +10,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import ru.s.myapplication.R;
 import ru.s.myapplication.model.Notice;
@@ -20,11 +27,66 @@ public class NoticeListAdapter extends BaseAdapter {
     private List<Notice> noticeList;
     private LayoutInflater inflater;
     private Context context;
+    private File file;
 
-    public NoticeListAdapter(List<Notice> noticeList, Context context) {
-        this.noticeList = noticeList;
+    private void loadData() {
+
+        FileReader reader;
+
+        try {
+
+            reader = new FileReader(file);
+            Scanner scanner = new Scanner(reader);
+
+            while (scanner.hasNextLine()) {
+
+                String line = scanner.nextLine();
+                String[] data = line.split(";");
+                Notice notice = new Notice(data[0], data[3], data[1], Double.parseDouble(data[2]), 0);
+                noticeList.add(notice);
+
+            }
+
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void saveData() {
+
+        FileWriter writer = null;
+        try {
+
+            writer = new FileWriter(file);
+
+            for (int i = 0; i < noticeList.size(); i++) {
+                writer.append(noticeList.get(i).toLine());
+            }
+
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public NoticeListAdapter(Context context) {
+
+        this.noticeList = new ArrayList<>();
         this.context = context;
         this.inflater = LayoutInflater.from(this.context);
+        this.file = new File(context.getExternalFilesDir(""), "notices.txt");
+
+        loadData();
+
     }
 
     @Override
@@ -69,6 +131,7 @@ public class NoticeListAdapter extends BaseAdapter {
 
                 noticeList.remove(currentPosition);
                 adapter.notifyDataSetChanged();
+                saveData();
 
             }
 
