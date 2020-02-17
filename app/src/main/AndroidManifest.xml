@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".NoticeFormActivity"></activity>
+        <activity android:name=".CalculatorSettingsActivity"></activity>
+        <activity android:name=".NoticeFormActivity" />
         <activity android:name=".ListActivity" />
         <activity android:name=".LocaleActivity" />
         <activity android:name=".CalculatorActivity" />
@@ -26,5 +27,7 @@
         <activity android:name=".SpinnersActivity" />
         <activity android:name=".DateTimeActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
 
 </manifest>

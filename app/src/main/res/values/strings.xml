@@ -113,5 +113,8 @@
     <string name="noticePricePlaceholder">Цена:</string>
     <string name="addTitle">Добавить</string>
 
+    <string name="settingsTitle">Настройки</string>
+    <string name="imagePathPlaceholder">Путь к картинке</string>
+
 </resources>
 
