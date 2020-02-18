@@ -125,5 +125,8 @@
     <string name="incorrectLoginMessage">Неверный логин</string>
     <string name="incorrectPasswordMessage">Неверный пароль</string>
 
+    <string name="loginSaveModeLabel">Хранить логин во внешнем хранилище</string>
+    <string name="errorMessage">Произошла ошибка</string>
+
 </resources>
 

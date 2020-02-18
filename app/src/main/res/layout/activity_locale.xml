@@ -36,6 +36,14 @@
         android:layout_marginTop="20dp"
         />
 
+    <CheckBox
+        android:id="@+id/loginSaveModeCheckbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/loginSaveModeLabel"
+        app:layout_constraintTop_toBottomOf="@id/marginsSpinner"
+        android:layout_marginTop="20dp" />
+
     <Button
         android:id="@+id/okBtn"
         android:layout_width="0dp"
@@ -44,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/marginsSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/loginSaveModeCheckbox"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:onClick="onApplyBtnClick"

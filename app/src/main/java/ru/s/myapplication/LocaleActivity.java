@@ -2,10 +2,12 @@ package ru.s.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import java.util.Locale;
@@ -17,6 +19,7 @@ public class LocaleActivity extends AppCompatActivity {
     private Spinner languagesSpinner;
     private Spinner themesSpinner;
     private Spinner marginsSpinner;
+    private CheckBox loginSaveModeCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,8 @@ public class LocaleActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> marginsAdapter = ArrayAdapter.createFromResource(this, R.array.margins, android.R.layout.simple_spinner_item);
         marginsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         marginsSpinner.setAdapter(marginsAdapter);
+
+        loginSaveModeCheckBox = findViewById(R.id.loginSaveModeCheckbox);
 
     }
 
@@ -121,10 +126,22 @@ public class LocaleActivity extends AppCompatActivity {
 
     }
 
+    protected void applyLoginSaveMode() {
+
+        boolean inExternal = loginSaveModeCheckBox.isChecked();
+
+        SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("saveLoginInExternal", inExternal);
+        editor.apply();
+
+    }
+
     public void onApplyBtnClick(View view) {
 
         applyLanguage();
         applyMargin();
+        applyLoginSaveMode();
 //        applyTheme(); // uncomment for colors change
 
     }

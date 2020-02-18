@@ -3,6 +3,7 @@ package ru.s.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,16 +12,23 @@ import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.io.Writer;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editLogin, editPassword;
+    private String cLogin, cPassword;
+    private boolean inExternal;
+
+    private final String filename = "login.bin";
 
     protected boolean checkFields() {
 
@@ -32,6 +40,40 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    protected void login(String login, String password) {
+
+        loadLoginAndPassword();
+
+        if (login.equals(cLogin)) {
+
+            if (password.equals(cPassword)) {
+
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+
+            } else {
+
+                Toast.makeText(LoginActivity.this, R.string.incorrectPasswordMessage, Toast.LENGTH_LONG).show();
+
+            }
+
+        } else {
+
+            Toast.makeText(LoginActivity.this, R.string.incorrectLoginMessage, Toast.LENGTH_LONG).show();
+
+        }
+
+    }
+
+    protected void registration(String login, String password) {
+
+        cLogin = login;
+        cPassword = password;
+
+        saveLoginAndPassword();
+
     }
 
     protected void initViews() {
@@ -48,50 +90,10 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (!checkFields()) return;
 
-                FileInputStream fileInputStream;
+                String login = editLogin.getText().toString();
+                String password = editPassword.getText().toString();
 
-                try {
-
-                    fileInputStream = openFileInput("login.bin");
-
-                    InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-                    BufferedReader reader = new BufferedReader(inputStreamReader);
-
-                    String cLogin = reader.readLine();
-
-                    fileInputStream = openFileInput("password.bin");
-
-                    inputStreamReader = new InputStreamReader(fileInputStream);
-                    reader = new BufferedReader(inputStreamReader);
-
-                    String cPassword = reader.readLine();
-
-                    String login = editLogin.getText().toString();
-                    String password = editLogin.getText().toString();
-
-                    if (login.equals(cLogin)) {
-
-                        if (password.equals(cPassword)) {
-
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-
-                        } else {
-
-                            Toast.makeText(LoginActivity.this, R.string.incorrectPasswordMessage, Toast.LENGTH_LONG).show();
-
-                        }
-
-                    } else {
-                        Toast.makeText(LoginActivity.this, R.string.incorrectLoginMessage, Toast.LENGTH_LONG).show();
-                    }
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+                login(login, password);
 
             }
         });
@@ -103,36 +105,77 @@ public class LoginActivity extends AppCompatActivity {
                 if (!checkFields()) return;
 
                 String login = editLogin.getText().toString();
-                String password = editLogin.getText().toString();
+                String password = editPassword.getText().toString();
 
-                FileOutputStream fileOutputStream;
-
-                try {
-
-                    fileOutputStream = openFileOutput("login.bin", MODE_PRIVATE);
-
-                    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-                    BufferedWriter bw = new BufferedWriter(outputStreamWriter);
-                    bw.write(login);
-                    bw.close();
-
-                    fileOutputStream = openFileOutput("password.bin", MODE_PRIVATE);
-
-                    outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-                    bw = new BufferedWriter(outputStreamWriter);
-                    bw.write(password);
-                    bw.close();
-
-                    Toast.makeText(LoginActivity.this, R.string.registrationSuccessMessage, Toast.LENGTH_LONG).show();
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                registration(login, password);
 
             }
         });
+
+    }
+
+    protected void loadLoginAndPassword() {
+
+        Reader reader;
+
+        try {
+
+            if (inExternal) {
+
+                File file = new File(getExternalFilesDir(null), filename);
+                reader = new FileReader(file);
+
+            } else {
+
+                FileInputStream fileInputStream = openFileInput(filename);
+                reader = new InputStreamReader(fileInputStream);
+
+            }
+
+            BufferedReader bufferedReader = new BufferedReader(reader);
+
+            cLogin = bufferedReader.readLine();
+            cPassword = bufferedReader.readLine();
+
+        } catch (Exception e) {
+
+            Toast.makeText(this, R.string.errorMessage, Toast.LENGTH_LONG).show();
+
+        }
+
+    }
+
+    protected void saveLoginAndPassword() {
+
+        Writer writer;
+
+        try {
+
+            if (inExternal) {
+
+                File file = new File(getExternalFilesDir(null), filename);
+                writer = new FileWriter(file);
+
+            } else {
+
+                FileOutputStream fileOutputStream = openFileOutput(filename, MODE_PRIVATE);
+                writer = new OutputStreamWriter(fileOutputStream);
+
+            }
+
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            bufferedWriter.write(cLogin);
+            bufferedWriter.write("\n");
+            bufferedWriter.write(cPassword);
+            bufferedWriter.close();
+
+            Toast.makeText(LoginActivity.this, R.string.registrationSuccessMessage, Toast.LENGTH_LONG).show();
+
+        } catch (Exception e) {
+
+            Toast.makeText(this, R.string.errorMessage, Toast.LENGTH_LONG).show();
+
+        }
 
     }
 
@@ -142,7 +185,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
+        inExternal = preferences.getBoolean("saveLoginInExternal", false);
+
         initViews();
 
     }
+
 }
