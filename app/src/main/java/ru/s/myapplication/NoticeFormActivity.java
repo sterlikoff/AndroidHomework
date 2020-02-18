@@ -42,32 +42,23 @@ public class NoticeFormActivity extends AppCompatActivity {
 
                 } else {
 
-                    File file = new File(getExternalFilesDir(""), "notices.txt");
+                    StringBuilder sBuilder = new StringBuilder();
 
-                    try {
+                    sBuilder.append(title);
+                    sBuilder.append(";");
+                    sBuilder.append(address);
+                    sBuilder.append(";");
+                    sBuilder.append(price);
+                    sBuilder.append(";");
+                    sBuilder.append(description);
+                    sBuilder.append("\n");
 
-                        StringBuilder sBuilder = new StringBuilder();
-                        sBuilder.append(title);
-                        sBuilder.append(";");
-                        sBuilder.append(address);
-                        sBuilder.append(";");
-                        sBuilder.append(price);
-                        sBuilder.append(";");
-                        sBuilder.append(description);
-                        sBuilder.append("\n");
+                    Intent intent = new Intent();
+                    intent.putExtra("result", sBuilder.toString());
 
-                        FileWriter writer = new FileWriter(file, true);
-                        writer.append(sBuilder.toString());
-                        writer.close();
+                    setResult(1, intent);
 
-                    } catch (Exception e) {
-
-                        //
-
-                    }
-
-                    Intent intent = new Intent(NoticeFormActivity.this, ListActivity.class);
-                    startActivity(intent);
+                    finish();
 
                 }
 
