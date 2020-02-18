@@ -1,8 +1,12 @@
 package ru.s.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -13,6 +17,48 @@ import android.widget.EditText;
 public class PhoneActivity extends AppCompatActivity {
 
     EditText phoneNumberEdit, messageEdit;
+
+    private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 11;
+    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 12;
+
+    protected boolean checkPermission(String permission, int request) {
+
+        boolean can = checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED;
+
+        if (!can) {
+            ActivityCompat.requestPermissions(PhoneActivity.this, new String[]{permission}, request);
+        }
+
+        return can;
+    }
+
+    protected void call() {
+
+        if (checkPermission(Manifest.permission.CALL_PHONE, MY_PERMISSIONS_REQUEST_CALL_PHONE)) {
+
+            String phone = phoneNumberEdit.getText().toString();
+            Uri uri = Uri.parse("tel:" + phone);
+
+            Intent intent = new Intent(Intent.ACTION_CALL, uri);
+            startActivity(intent);
+
+        }
+
+    }
+
+    protected void send() {
+
+        if (checkPermission(Manifest.permission.SEND_SMS, MY_PERMISSIONS_REQUEST_SEND_SMS)) {
+
+            String phone = phoneNumberEdit.getText().toString();
+            String message = messageEdit.getText().toString();
+
+            SmsManager manager = SmsManager.getDefault();
+            manager.sendTextMessage(phone, null, message, null, null);
+
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,28 +75,43 @@ public class PhoneActivity extends AppCompatActivity {
         callBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String phone = phoneNumberEdit.getText().toString();
-                Uri uri = Uri.parse("tel:" + phone);
-
-                Intent intent = new Intent(Intent.ACTION_CALL, uri);
-                startActivity(intent);
-
+                call();
             }
         });
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String phone = phoneNumberEdit.getText().toString();
-                String message = messageEdit.getText().toString();
-
-                SmsManager manager = SmsManager.getDefault();
-                manager.sendTextMessage(phone, null, message, null, null);
-
+                send();
             }
         });
 
     }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+            switch (requestCode) {
+
+                case MY_PERMISSIONS_REQUEST_CALL_PHONE: {
+                    call();
+                }
+
+                case MY_PERMISSIONS_REQUEST_SEND_SMS: {
+                    send();
+                }
+
+            }
+
+        } else {
+
+            finish();
+
+        }
+
+    }
+
 }
