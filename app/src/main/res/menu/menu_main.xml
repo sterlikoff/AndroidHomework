@@ -58,4 +58,10 @@
         android:title="@string/menuLabelGeo"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_open_phone"
+        android:orderInCategory="100"
+        android:title="@string/menuLabelPhone"
+        app:showAsAction="never" />
+
 </menu>

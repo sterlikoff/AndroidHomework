@@ -97,6 +97,13 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
 
+            case R.id.action_open_phone:
+
+                Intent phone = new Intent(MainActivity.this, PhoneActivity.class);
+                startActivity(phone);
+
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);

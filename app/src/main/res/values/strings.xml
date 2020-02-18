@@ -59,6 +59,7 @@
     <string name="menuLabelLocale">Локализация</string>
     <string name="menuLabelList">Списки</string>
     <string name="menuLabelGeo">Поиск адреса</string>
+    <string name="menuLabelPhone">Телефон</string>
 
     <string name="labelOne">1</string>
     <string name="labelTwo">2</string>
@@ -131,6 +132,12 @@
 
     <string name="addressPlaceholder">Введите адрес или координаты</string>
     <string name="searchLabel">Ищем</string>
+
+    <string name="phoneNumberPlaceholder">Введите номер телефона</string>
+    <string name="messagePlaceholder">Введите сообщение</string>
+
+    <string name="callLabel">Звоним</string>
+    <string name="sendLabel">Отправляем</string>
 
 </resources>
 
