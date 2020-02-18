@@ -14,6 +14,11 @@
         android:layout_height="match_parent"
         >
 
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -360,11 +365,6 @@
                     android:textSize="36sp"
                     android:onClick="onButtonClick"
                     />
-
-                <ImageView
-                    android:id="@+id/background_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
 
                 <Button
                     android:id="@+id/btnNine"
