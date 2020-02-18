@@ -90,6 +90,13 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
 
+            case R.id.action_open_geo:
+
+                Intent geo = new Intent(MainActivity.this, AddressActivity.class);
+                startActivity(geo);
+
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);

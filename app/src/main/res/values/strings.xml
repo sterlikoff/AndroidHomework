@@ -58,6 +58,7 @@
     <string name="menuLabelCalculator">Калькулятор</string>
     <string name="menuLabelLocale">Локализация</string>
     <string name="menuLabelList">Списки</string>
+    <string name="menuLabelGeo">Поиск адреса</string>
 
     <string name="labelOne">1</string>
     <string name="labelTwo">2</string>
@@ -127,6 +128,9 @@
 
     <string name="loginSaveModeLabel">Хранить логин во внешнем хранилище</string>
     <string name="errorMessage">Произошла ошибка</string>
+
+    <string name="addressPlaceholder">Введите адрес или координаты</string>
+    <string name="searchLabel">Ищем</string>
 
 </resources>
 
