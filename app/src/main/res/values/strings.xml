@@ -116,5 +116,14 @@
     <string name="settingsTitle">Настройки</string>
     <string name="imagePathPlaceholder">Путь к картинке</string>
 
+    <string name="loginPlaceholder">Логин:</string>
+    <string name="passwordPlaceholder">Пароль:</string>
+    <string name="loginLabel">Войти</string>
+    <string name="registrationLabel">Регистрация</string>
+    <string name="emptyFieldsMessage">Заполните все поля</string>
+    <string name="registrationSuccessMessage">Вы успешно зарегистрированы!</string>
+    <string name="incorrectLoginMessage">Неверный логин</string>
+    <string name="incorrectPasswordMessage">Неверный пароль</string>
+
 </resources>
 
